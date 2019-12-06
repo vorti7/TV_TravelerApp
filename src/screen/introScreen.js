@@ -7,21 +7,30 @@ import { Navigator, ScreenConst } from '../navigation'
 
 export default (props) => {
 
-    screenFunc = (index) => {
+    const screenFunc = (index) => {
         // go Next Screen
-        // index : 0 - X
-        //       : 1 - loginScreen
-        //       : 2 - mainScreen
-        let destinations = ['', ScreenConst.TV_LOGIN, ScreenConst.TV_MAIN]
+        // index : 0 - popScreen
+        //       : x>0 - pushScreen 
+        //       : x<0 - setRootScreen
+        pushList = []
+        setRootList = [ScreenConst.TV_LOGIN, ScreenConst.TV_MAIN]
 
-        if (index>0){
-            Navigator.setRootScreen(destinations[index])
+        if (index > 0){
+            if(index>=pushList.length){
+                Navigator.pushScreen(props.componentId, pushList[index-1])
+            }
+        } else if(index == 0){
+            Navigator.popScreen(props.componentId)
+        } else if(index < 0) {
+            if(-index<=setRootList.length){
+                Navigator.setRootScreen(setRootList[-index-1])
+            }
         }
     }
 
     useState(() => {
         return timer = setTimeout(() => {
-            screenFunc(2)
+            screenFunc(-2)
         }, 3000)
     })
 

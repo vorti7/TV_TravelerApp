@@ -17,6 +17,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.List;
 
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
+import com.swmansion.reanimated.ReanimatedPackage;
+
 // public class MainApplication extends Application implements ReactApplication {
 
 //   private final ReactNativeHost mReactNativeHost =
@@ -103,7 +106,9 @@ public class MainApplication extends NavigationApplication {
         // Add additional packages you require here
         // No need to add RnnPackage and MainReactPackage
         return Arrays.<ReactPackage>asList(
-            // eg. new VectorIconsPackage()
+            // eg. new VectorIconsPackage(),
+            new RNGestureHandlerPackage(),
+            new ReanimatedPackage()
         );
     }
 

@@ -3,13 +3,16 @@ import { Navigation } from "react-native-navigation";
 import * as Const from './const';
 import * as Screen from '../screen';
 
+import { gestureHandlerRootHOC } from 'react-native-gesture-handler'
+
 export default {
     registerScreens() {
         Navigation.registerComponent(Const.TV_INTRO, () => Screen.IntroScreen);
         Navigation.registerComponent(Const.TV_LOGIN, () => Screen.LoginScreen);
-        Navigation.registerComponent(Const.TV_MAIN, () => Screen.MainScreen);
+        Navigation.registerComponent(Const.TV_MAIN, () => gestureHandlerRootHOC(Screen.MainScreen));
 
         Navigation.registerComponent(Const.TV_TEST, () => Screen.TestScreen)
+        Navigation.registerComponent(Const.TV_SIDE, () => Screen.SideScreen)
     },
 
     startApp() {
@@ -46,23 +49,32 @@ export default {
 
       Navigation.setRoot({
         root: {
-          stack: {
-            id: targetScreen,
-            children: [
-              {
-                component: {
-                  // name: Const.SCREEN_INDEX_HOME,
-                  name: targetScreen,
-                  passProps: passProps,
-                  options:{
-                    animations:{
-                      setRoot:animation
-                    }
-                  }
-                },
+          sideMenu:{
+            left:{
+              component:{
+                name: Const.TV_SIDE
+              }
+            },
+            center:{
+              stack: {
+                id: targetScreen,
+                children: [
+                  {
+                    component: {
+                      // name: Const.SCREEN_INDEX_HOME,
+                      name: targetScreen,
+                      passProps: passProps,
+                      options:{
+                        animations:{
+                          setRoot:animation
+                        }
+                      }
+                    },
+                  },
+                ],
               },
-            ],
-          },
+            }
+          },          
         },
       });
     },
@@ -76,6 +88,9 @@ export default {
           id: targetScreen,
           passProps: passProps, 
           options: {
+            topBar:{
+              visible: true,
+            },
             // animations: {
             //   push: Animations.leftIn,
             //   pop: Animations.leftOut
@@ -84,6 +99,10 @@ export default {
           }
         }
       })
+    },
+    
+    popScreen(cmpId) {
+      Navigation.pop(cmpId);
     },
 }
 
