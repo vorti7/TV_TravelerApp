@@ -14,11 +14,11 @@ export default (props) => {
         // index : 0 - popScreen
         //       : x>0 - pushScreen 
         //       : x<0 - setRootScreen
-        pushList = [ScreenConst.TV_TEST]
+        pushList = [ScreenConst.TV_TEST, ScreenConst.TV_TESTPORTAL]
         setRootList = []
 
         if (index > 0){
-            if(index>=pushList.length){
+            if(index<=pushList.length){
                 Navigator.pushScreen(props.componentId, pushList[index-1])
             }
         } else if(index == 0){
@@ -58,6 +58,21 @@ export default (props) => {
                 backgroundColor:'red'
               }}
             >
+              <Button
+                title="sss"
+              />
+              <Button
+                  title="go Test"
+                  onPress={() => {
+                      screenFunc(1)
+                  }}
+              />
+              <Button
+                  title="go TestPortal"
+                  onPress={() => {
+                      screenFunc(2)
+                  }}
+              />
             </View>
           );
         case 'second':

@@ -2,10 +2,12 @@ import React, { useState, useCallback, useEffect } from 'react';
 import {
     View,
     Text
-  } from 'react-native';
-import { Navigation } from "react-native-navigation";
+} from 'react-native';
+import { Navigator, ScreenConst } from '../navigation'
+import { TopbarContainer } from '../components'
 
 export default (props) => {
+
     const screenFunc = (index) => {
         // go Next Screen
         // index : 0 - popScreen
@@ -26,9 +28,17 @@ export default (props) => {
             }
         }
     }
+
     return(
-        <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
-            <Text>This is Login Screen.</Text>
-        </View>
+        // <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
+        
+        // </View>
+        <TopbarContainer
+            componentId={props.componentId}
+            topBackgroundColor="green"
+            mainBackgroundColor="blue"
+        >
+
+        </TopbarContainer>
     )
 }

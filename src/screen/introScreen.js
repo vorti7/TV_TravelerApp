@@ -16,7 +16,7 @@ export default (props) => {
         setRootList = [ScreenConst.TV_LOGIN, ScreenConst.TV_MAIN]
 
         if (index > 0){
-            if(index>=pushList.length){
+            if(index<=pushList.length){
                 Navigator.pushScreen(props.componentId, pushList[index-1])
             }
         } else if(index == 0){

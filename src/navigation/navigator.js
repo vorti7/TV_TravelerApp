@@ -11,8 +11,10 @@ export default {
         Navigation.registerComponent(Const.TV_LOGIN, () => Screen.LoginScreen);
         Navigation.registerComponent(Const.TV_MAIN, () => gestureHandlerRootHOC(Screen.MainScreen));
 
-        Navigation.registerComponent(Const.TV_TEST, () => Screen.TestScreen)
         Navigation.registerComponent(Const.TV_SIDE, () => Screen.SideScreen)
+
+        Navigation.registerComponent(Const.TV_TEST, () => Screen.TestScreen)
+        Navigation.registerComponent(Const.TV_TESTPORTAL, () => Screen.TestPortalScreen)
     },
 
     startApp() {
@@ -88,9 +90,9 @@ export default {
           id: targetScreen,
           passProps: passProps, 
           options: {
-            topBar:{
-              visible: true,
-            },
+            // topBar:{
+            //   visible: true,
+            // },
             // animations: {
             //   push: Animations.leftIn,
             //   pop: Animations.leftOut
@@ -99,6 +101,13 @@ export default {
           }
         }
       })
+
+      // Navigation.mergeOptions(cmpId, {
+      //   topBar:{
+      //     visible: true
+      //   }
+      // })
+
     },
     
     popScreen(cmpId) {

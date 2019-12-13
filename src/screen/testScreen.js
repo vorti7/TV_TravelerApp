@@ -4,6 +4,7 @@ import {
     Text
 } from 'react-native';
 import { Navigator, ScreenConst } from '../navigation'
+import { TopbarContainer } from '../components'
 
 export default (props) => {
     const screenFunc = (index) => {
@@ -15,7 +16,7 @@ export default (props) => {
         setRootList = []
 
         if (index > 0){
-            if(index>=pushList.length){
+            if(index<=pushList.length){
                 Navigator.pushScreen(props.componentId, pushList[index-1])
             }
         } else if(index == 0){
@@ -28,8 +29,15 @@ export default (props) => {
     }
 
     return(
-        <View style={{flex:1, alignItems:'center', justifyContent:'center', backgroundColor:'red'}}>
+        // <View style={{flex:1, alignItems:'center', justifyContent:'center', backgroundColor:'red'}}>
         
-        </View>
+        // </View>
+        <TopbarContainer
+            componentId={props.componentId}
+            topBackgroundColor="green"
+            mainBackgroundColor="blue"
+        >
+
+        </TopbarContainer>
     )
 }
