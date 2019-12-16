@@ -15,6 +15,7 @@ export default {
 
         Navigation.registerComponent(Const.TV_TEST, () => Screen.TestScreen)
         Navigation.registerComponent(Const.TV_TESTPORTAL, () => Screen.TestPortalScreen)
+        Navigation.registerComponent(Const.TV_TESTMAP, () => Screen.TestMapScreen)
     },
 
     startApp() {

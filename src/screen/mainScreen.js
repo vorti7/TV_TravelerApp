@@ -14,7 +14,7 @@ export default (props) => {
         // index : 0 - popScreen
         //       : x>0 - pushScreen 
         //       : x<0 - setRootScreen
-        pushList = [ScreenConst.TV_TEST, ScreenConst.TV_TESTPORTAL]
+        pushList = [ScreenConst.TV_TEST, ScreenConst.TV_TESTPORTAL, ScreenConst.TV_TESTMAP]
         setRootList = []
 
         if (index > 0){
@@ -71,6 +71,12 @@ export default (props) => {
                   title="go TestPortal"
                   onPress={() => {
                       screenFunc(2)
+                  }}
+              />
+              <Button
+                  title="go TestMap"
+                  onPress={() => {
+                      screenFunc(3)
                   }}
               />
             </View>

@@ -19,6 +19,7 @@ import java.util.List;
 
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.swmansion.reanimated.ReanimatedPackage;
+import com.airbnb.android.react.maps.MapsPackage;
 
 // public class MainApplication extends Application implements ReactApplication {
 
@@ -108,7 +109,8 @@ public class MainApplication extends NavigationApplication {
         return Arrays.<ReactPackage>asList(
             // eg. new VectorIconsPackage(),
             new RNGestureHandlerPackage(),
-            new ReanimatedPackage()
+            new ReanimatedPackage(),
+            new MapsPackage()
         );
     }
 

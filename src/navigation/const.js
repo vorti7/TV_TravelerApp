@@ -8,3 +8,4 @@ export const TV_SIDE = 'travut.screen.side'
 
 export const TV_TEST = 'travut.screen.test'
 export const TV_TESTPORTAL = 'travut.screen.testPortal'
+export const TV_TESTMAP = 'travut.screentestMap'
